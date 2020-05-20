@@ -23,6 +23,11 @@ Notice most of the bindings emulate vim cursor movements.
 Newly created panes always have the same path as the original pane plus same NVIM_LISTEN_ADDRESS
 Newly created windows have a randomized NVIM_LISTEN_ADDRESS
 
+### Prerequisites
+
+- Have your nvim instance already running with neovim-remote
+- Update your shell scripts so `env | grep NVIM_LISTEN_ADDRESS` prints nothing
+
 ### Installation with [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) (recommended)
 
 Add plugin to the list of TPM plugins in `.tmux.conf`:
