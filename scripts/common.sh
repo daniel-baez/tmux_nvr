@@ -12,3 +12,5 @@ next_nvimsocket_filename() {
   echo "/tmp/nvimsocket-${id}-${session_name}-${window_index}"
 }
 
+
+
