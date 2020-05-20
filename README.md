@@ -1,6 +1,6 @@
 # tmux neovim remote
 
-Extends from tmux-pain-control. allows to share a singlea nvim
+Extends from tmux-pain-control. allows to share a single nvim
 instance for each tmux window
 
 ### Bindings
