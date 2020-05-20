@@ -1,12 +1,7 @@
 #!/usr/bin/env bash
 
-next_nvimsocket_filename() {
-  session_name=$(tmux display-message -p '#S')
-  window_index=$(tmux display-message -p '#I')
-  id=$(random 6)
-
-  echo "/tmp/nvimsocket-$id$-$session_name-$window_index"
-}
+CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source "$CURRENT_DIR/common.sh"
 
 create_window_nvr() {
   next_file_name=$(next_nvimsocket_filename)
