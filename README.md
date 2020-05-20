@@ -25,7 +25,7 @@ Newly created windows have a randomized NVIM_LISTEN_ADDRESS
 
 ### Prerequisites
 
-- tmux v3.1 >
+- known to work on tmux v3.1 (2.9 doesn't take `split-window -e`)
 - Have your nvim instance already running with neovim-remote
 - Update your shell scripts so `env | grep NVIM_LISTEN_ADDRESS` prints nothing
 
