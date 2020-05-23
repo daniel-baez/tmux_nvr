@@ -1,7 +1,24 @@
 # tmux neovim remote
 
-Extends from tmux-pain-control. allows to share a single nvim
-instance for each tmux window
+This plugin takes pieces from [tmux-pain-control][1] and [tmux-sessionist][2]
+its most notable features are:
+
+- Makes very fast to "branch" to new panes, windows and sessions
+- All new windows, panes and sessions preserve the current working directory of
+  the issuing terminal
+- Panes within the same window, get their unique-randomized env variable NVIM_LISTEN_ADDRESS
+  this, combined with [neovim-remote][3] allows you to maintain only one vim instance per tmux window
+
+Combined with [vim-rooter][4] this ends up emulating a sort of IDE experience.
+Where from the editor (your vim instance) you can open a terminal standing at
+the project's root folder (by means of vim-rooter) then issue a command like
+
+```
+find . -type f | xargs -n1 nvr
+```
+
+And have all those files open in the only vim instance running in the current
+window.
 
 ### Bindings
 
@@ -9,6 +26,8 @@ Notice most of the bindings emulate vim cursor movements.
 
 **Splitting panes & windows**
 
+- `prefix + C`<br/>
+  prompts for name and creates session
 - `prefix + c`<br/>
   creates new window
 - `prefix + |`<br/>
@@ -20,8 +39,8 @@ Notice most of the bindings emulate vim cursor movements.
 - `prefix + _`<br/>
   split current pane full width vertically
 
-Newly created panes always have the same path as the original pane plus same NVIM_LISTEN_ADDRESS
-Newly created windows have a randomized NVIM_LISTEN_ADDRESS
+Newly created panes always have the same path and NVIM_LISTEN_ADDRESS as the original pane.
+Newly created windows and sessions have a randomized NVIM_LISTEN_ADDRESS
 
 ### Prerequisites
 
@@ -39,6 +58,8 @@ Hit `prefix + I` to fetch the plugin and source it.
 
 You should now have all `pain-control` bindings defined.
 
+Make sure to install list this plugin after [tmux-pain-control][1] and/or [tmux-session_name][2]
+
 ### Manual Installation
 
 Clone the repo:
@@ -55,3 +76,7 @@ Reload TMUX environment:
     $ tmux source-file ~/.tmux.conf
 
 
+[1]: https://github.com/tmux-plugins/tmux-pain-control
+[2]: https://github.com/tmux-plugins/tmux-sessionist
+[3]: https://github.com/mhinz/neovim-remote
+[4]: https://github.com/airblade/vim-rooter
