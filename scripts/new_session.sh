@@ -12,8 +12,7 @@ session_name_not_provided() {
 }
 
 new_session() {
-  tuple=$(tmux new-session -d -P -F '#{session_id},#{window_id},#{pane_id}' -s "$SESSION_NAME")
-
+  tuple=$(tmux new-session -d -P -F '#{session_id},#{window_id},#{pane_id}' -s "$SESSION_NAME" -c "#{pane_current_path}")
   session_id=$(echo $tuple | cut -f1 -d,)
   window_id=$(echo $tuple | cut -f2 -d,)
   pane_id=$(echo $tuple | cut -f3 -d,)
